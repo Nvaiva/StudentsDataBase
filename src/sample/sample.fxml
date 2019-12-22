@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="892.0" style="-fx-background-color: #f2c9a0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="704.0" prefWidth="864.0" style="-fx-background-color: #522424;">
+         <children>
+            <Label alignment="CENTER" layoutX="241.0" layoutY="39.0" prefHeight="27.0" prefWidth="382.0" text="Students attendance managment system" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="75.0" layoutY="101.0" prefHeight="240.0" prefWidth="295.0" style="-fx-background-color: #ad4747;">
+               <children>
+                  <Label layoutX="79.0" layoutY="14.0" text="Add new student" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="53.0" prefHeight="18.0" prefWidth="88.0" text="Course name" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="groupField" layoutX="12.0" layoutY="72.0" promptText="Java" styleClass="jfx-text-field" stylesheets="@style.css" unFocusColor="#b29b9b" />
+                  <Label layoutX="14.0" layoutY="110.0" prefHeight="18.0" prefWidth="88.0" text="Students name" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="nameField" layoutX="11.0" layoutY="129.0" promptText="Peter" styleClass="jfx-text-field" stylesheets="@style.css" unFocusColor="#b29b9b" />
+                  <Label layoutX="14.0" layoutY="162.0" prefHeight="19.0" prefWidth="124.0" text="Students last name" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="lastNameField" layoutX="12.0" layoutY="186.0" promptText="Smith" styleClass="jfx-text-field" stylesheets="@style.css" unFocusColor="#b29b9b" />
+                  <JFXButton layoutX="189.0" layoutY="93.0" onAction="#submitPressed" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: #f56262;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="189.0" layoutY="154.0" onMouseClicked="#onUpdatePressed" prefHeight="34.0" prefWidth="78.0" style="-fx-background-color: #f56262;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="475.0" layoutY="101.0" prefHeight="240.0" prefWidth="295.0" style="-fx-background-color: #ad4747;">
+               <children>
+                  <Label alignment="CENTER" layoutX="70.0" layoutY="14.0" prefHeight="20.0" prefWidth="154.0" text="Add attendance" textFill="#f0f0f0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXDatePicker fx:id="oneDayDatePicker" defaultColor="#c5e5e1" layoutX="70.0" layoutY="53.0" onMouseClicked="#oneDayAttendancePressed" prefHeight="28.0" prefWidth="154.0" />
+                  <Label layoutX="103.0" layoutY="100.0" text="Add more days" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="137.0" prefHeight="19.0" prefWidth="102.0" text="Start from" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXDatePicker fx:id="startDayPicker" defaultColor="#c6e8e4" layoutX="126.0" layoutY="123.0" onMouseClicked="#startDayAttendancePressed" prefHeight="28.0" prefWidth="154.0" />
+                  <Label layoutX="14.0" layoutY="172.0" prefHeight="19.0" prefWidth="102.0" text="End" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXDatePicker fx:id="endDayPicker" defaultColor="#c6e8e4" layoutX="126.0" layoutY="158.0" onMouseClicked="#endDayAttendancePressed" prefHeight="28.0" prefWidth="154.0" />
+                  <Label layoutX="14.0" layoutY="206.0" prefHeight="19.0" prefWidth="102.0" text="Period" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="daysPeriod" alignment="BOTTOM_CENTER" layoutX="128.0" layoutY="202.0" onAction="#periodAttendancePressed" prefHeight="26.0" prefWidth="124.0" promptText="7" styleClass="jfx-text-field" stylesheets="@style.css" unFocusColor="#595757" />
+               </children>
+            </AnchorPane>
+            <TableView fx:id="table" layoutX="57.0" layoutY="409.0" onMouseClicked="#onTablePressed" prefHeight="279.0" prefWidth="720.0" stylesheets="@style.css">
+              <columns>
+                  <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="group" minWidth="20.0" prefWidth="100.0" text="Course" />
+                <TableColumn fx:id="name" minWidth="20.0" prefWidth="100.0" text="Name" />
+                  <TableColumn fx:id="lastName" prefWidth="130.0" text="Last name" />
+                  <TableColumn fx:id="attendance" prefWidth="75.0" text="Attendance" />
+              </columns>
+               <styleClass>
+                  <String fx:value="column-header" />
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="table-cell" />
+                  <String fx:value="table-row-cell" />
+                  <String fx:value="table-view" />
+                  <String fx:value="track" />
+                  <String fx:value="track-background" />
+                  <String fx:value="virtual-flow" />
+               </styleClass>
+            </TableView>
+            <JFXComboBox fx:id="comboBox" editable="true" focusColor="#ca8d8d" layoutX="57.0" layoutY="368.0" onMouseClicked="#comboBoxPressed" prefHeight="26.0" prefWidth="114.0" promptText="Choose course" styleClass="combo-box" stylesheets="@style.css" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="toFileBox" focusColor="#bd6969" layoutX="634.0" layoutY="368.0" onMouseClicked="#toFileBoxPressed" prefHeight="26.0" prefWidth="135.0" promptText="Import/export to file" styleClass="combo-box" stylesheets="@style.css" unFocusColor="#cacaca" />
+            <JFXComboBox fx:id="deleteBox" editable="true" focusColor="#ca8d8d" layoutX="203.0" layoutY="368.0" onMouseClicked="#onDeletePressed" prefHeight="26.0" prefWidth="114.0" promptText="Delete" styleClass="combo-box" stylesheets="@style.css" unFocusColor="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
